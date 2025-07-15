@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кокичи Ома - Danganronpa V3</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1a0d2b, #341a5e);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 3px solid #8a2be2;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 3rem;
+            color: #ffffff;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+            margin-bottom: 20px;
+            animation: glow 2s infinite alternate;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: #d8bfd8;
+            margin-bottom: 30px;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #fff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+            }
+            to {
+                text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+            }
+        }
+        
+        .character-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 50px 0;
+            background: rgba(25, 10, 45, 0.7);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .character-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(138, 43, 226, 0.4);
+            position: relative;
+        }
+        
+        .character-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .character-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .character-info {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .section-title {
+            font-family: 'Press Start 2P', cursive;
+            color: #9370db;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #8a2be2;
+            text-align: center;
+        }
+        
+        .character-traits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .trait-card {
+            background: rgba(138, 43, 226, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s, background 0.3s;
+        }
+        
+        .trait-card:hover {
+            transform: translateY(-5px);
+            background: rgba(138, 43, 226, 0.3);
+        }
+        
+        .trait-card i {
+            font-size: 2.5rem;
+            color: #ff00ff;
+            margin-bottom: 15px;
+        }
+        
+        .trait-card h3 {
+            color: #e0b0ff;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .quotes-section {
+            background: rgba(25, 10, 45, 0.7);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 50px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .quote {
+            background: rgba(138, 43, 226, 0.2);
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #ff00ff;
+            border-radius: 0 15px 15px 0;
+            position: relative;
+        }
+        
+        .quote::before {
+            content: """;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 4rem;
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            color: rgba(255, 0, 255, 0.2);
+        }
+        
+        .gallery-section {
+            margin: 50px 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover .caption {
+            transform: translateY(0);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 2px solid #8a2be2;
+        }
+        
+        .game-logo {
+            font-family: 'Press Start 2P', cursive;
+            color: #ff00ff;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: #d8bfd8;
+            font-size: 1.5rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #ff00ff;
+            transform: translateY(-5px);
+        }
+        
+        .spoiler {
+            background: rgba(255, 0, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .spoiler::before {
+            content: "⚠️ ВНИМАНИЕ: СПОЙЛЕРЫ ⚠️";
+            display: block;
+            font-weight: bold;
+            color: #ff0000;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .character-section {
+                flex-direction: column;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #ff00ff;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #ff00ff; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Кокичи Ома</h1>
+            <div class="subtitle">Верховный лидер организации зла</div>
+            <div class="typewriter">"Психопатический лжец с тайным планом"</div>
+        </header>
+        
+        <section class="character-section">
+            <div class="character-image">
+                <img src="https://i.pinimg.com/originals/3f/8a/bb/3f8abb5d2b9f5f6c3c4c5d8c1b4d5b4d.jpg" alt="Кокичи Ома">
+            </div>
+            <div class="character-info">
+                <h2 class="section-title">Кто такой Кокичи Ома?</h2>
+                <p>Кокичи Ома (яп. 王馬 小吉) — студент академии талантов, известный как "Верховный лидер организации зла". Он появляется в Danganronpa V3: Killing Harmony как один из шестнадцати студентов, похищенных Монокумой для участия в Убийственной игре.</p>
+                <p>Кокичи — загадочный персонаж, чья личность и мотивы постоянно окутаны тайной. Он постоянно лжёт, создаёт хаос и манипулирует другими студентами. Несмотря на своё заявление о том, что он лидер преступной организации, правдивость этой информации остаётся под вопросом.</p>
+                
+                <div class="character-traits">
+                    <div class="trait-card">
+                        <i class="fas fa-crown"></i>
+                        <h3>Талант</h3>
+                        <p>Верховный лидер организации зла</p>
+                    </div>
+                    <div class="trait-card">
+                        <i class="fas fa-birthday-cake"></i>
+                        <h3>Возраст</h3>
+                        <p>Неизвестен (предположительно 17-18 лет)</p>
+                    </div>
+                    <div class="trait-card">
+                        <i class="fas fa-venus-mars"></i>
+                        <h3>Пол</h3>
+                        <p>Мужской</p>
+                    </div>
+                    <div class="trait-card">
+                        <i class="fas fa-heart"></i>
+                        <h3>Любимое</h3>
+                        <p>Кола, ложь, создание хаоса</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="character-section">
+            <div class="character-info">
+                <h2 class="section-title">Личность и Характер</h2>
+                <p>Кокичи — один из самых загадочных и противоречивых персонажей во франшизе Danganronpa. Его поведение колеблется между детской игривостью и манипулятивной жестокостью. Он постоянно лжёт, утверждая, что ложь — это его способ общения с миром.</p>
+                <p>Несмотря на его заявления о злодейских намерениях, действия Кокичи часто противоречат его словам. Он демонстрирует незаурядный интеллект и способность предвидеть события, что делает его опасным противником в Убийственной игре.</p>
+                
+                <h3 style="color: #e0b0ff; margin: 20px 0 10px;">Основные черты характера:</h3>
+                <ul style="padding-left: 20px; margin-bottom: 20px;">
+                    <li>Манипулятивность и психологическая проницательность</li>
+                    <li>Склонность к хаосу и разрушению планов других</li>
+                    <li>Непредсказуемость и эксцентричность</li>
+                    <li>Детская непосредственность, граничащая с жестокостью</li>
+                    <li>Глубокое понимание человеческой природы</li>
+                </ul>
+                
+                <div class="spoiler">
+                    <p>В ходе игры раскрывается, что Кокичи не является настоящим лидером преступной организации. Его истинные мотивы связаны с желанием положить конец Убийственной игре любой ценой, даже ценой собственной жизни.</p>
+                </div>
+            </div>
+            <div class="character-image">
+                <img src="https://i.pinimg.com/originals/15/0a/4a/150a4a6c5d5f78f4d8c7b6f5d0e2e4d7.jpg" alt="Кокичи Ома - Личность">
+            </div>
+        </section>
+        
+        <section class="quotes-section">
+            <h2 class="section-title">Знаменитые Цитаты</h2>
+            
+            <div class="quote">
+                <p>"Ложь — это моя форма любви. Я лгу, потому что забочусь о вас!"</p>
+            </div>
+            
+            <div class="quote">
+                <p>"Знаешь, я ненавижу скучные вещи. Особенно скучную правду!"</p>
+            </div>
+            
+            <div class="quote">
+                <p>"Это ложь! Всё, что я говорю — ложь! Но если всё ложь, то значит ли это, что это тоже ложь?"</p>
+            </div>
+            
+            <div class="quote">
+                <p>"Если ты хочешь, чтобы тебе поверили, сначала сделай так, чтобы тебе не верили. Тогда, когда ты скажешь правду, все подумают, что ты снова лжёшь!"</p>
+            </div>
+            
+            <div class="quote">
+                <p>"Я — верховный лидер организации зла! Моя организация насчитывает более 10,000 членов по всему миру! ...А может, это ложь? Ни-хи-хи!"</p>
+            </div>
+        </section>
+        
+        <section class="gallery-section">
+            <h2 class="section-title">Галерея Кокичи Омы</h2>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://i.pinimg.com/originals/6a/0a/5f/6a0a5f2b5c6d0f4e0b4e5d8c1b4d5b4d.jpg" alt="Кокичи Ома 1">
+                    <div class="caption">Кокичи в своей фирменной одежде</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.pinimg.com/originals/3d/3f/6d/3d3f6d8c1b4d5b4d3f8a2b5d2b9f5f6c.jpg" alt="Кокичи Ома 2">
+                    <div class="caption">"Ни-хи-хи!" - фирменный смех</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.pinimg.com/originals/9a/1a/4b/9a1a4b8c1b4d5b4d3f8a2b5d2b9f5f6c.jpg" alt="Кокичи Ома 3">
+                    <div class="caption">Кокичи с колой - его любимым напитком</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.pinimg.com/originals/2b/9f/5f/2b9f5f6c3c4c5d8c1b4d5b4d3f8a2b5.jpg" alt="Кокичи Ома 4">
+                    <div class="caption">Манипулятор и стратег</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.pinimg.com/originals/5d/2b/9f/5d2b9f5f6c3c4c5d8c1b4d5b4d3f8a2.jpg" alt="Кокичи Ома 5">
+                    <div class="caption">Детская невинность и жестокость</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.pinimg.com/originals/6c/3c/4c/6c3c4c5d8c1b4d5b4d3f8a2b5d2b9f5.jpg" alt="Кокичи Ома 6">
+                    <div class="caption">Кокичи во время классного суда</div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="game-logo">Danganronpa V3: Killing Harmony</div>
+            <p>© Spike Chunsoft Co., Ltd. Все права защищены.</p>
+            <p>Фан-сайт, посвященный персонажу Кокичи Оме. Неофициальный ресурс.</p>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-discord"></i></a>
+                <a href="#"><i class="fab fa-tumblr"></i></a>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        // Анимация для элементов при прокрутке
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            const animatedElements = document.querySelectorAll('.character-section, .quotes-section, .gallery-section');
+            animatedElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(el);
+            });
+            
+            // Эффект параллакса для фона
+            document.addEventListener('mousemove', (e) => {
+                const x = (window.innerWidth - e.pageX * 2) / 100;
+                const y = (window.innerHeight - e.pageY * 2) / 100;
+                document.body.style.backgroundPosition = ${x}px ${y}px;
+            });
+        });
+    </script>
+</body>
+</html>
