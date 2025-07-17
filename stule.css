@@ -1,0 +1,12 @@
+body { 
+	background-color: lavender;	/* Голубой фон */
+	color: black;						/* Чёрный текст */
+}
+
+h1 { 
+	color: plum;		/* Синий заголовок */
+}
+
+p { 
+	font-size: 18px;	/* Размер шрифта абзаца */
+}
