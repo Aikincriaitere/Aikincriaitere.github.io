@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fairy Tail | Хвост Феи</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f172a;
+            background-image: url('https://top-bootcamp-2025.github.io/img/kokichi_oma.png');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #e2e8f0;
+        }
+        
+        .title-font {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .card {
+            background: rgba(15, 23, 42, 0.8);
+            border: 2px solid #3b82f6;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ef4444, #f59e0b, #3b82f6, #8b5cf6);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.5);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #ef4444, #f59e0b, #3b82f6, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        .character-natsu {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+        }
+        
+        .character-lucy {
+            border-color: #f59e0b;
+            background: rgba(245, 158, 11, 0.1);
+        }
+        
+        .character-gray {
+            border-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+        }
+        
+        .character-erza {
+            border-color: #8b5cf6;
+            background: rgba(139, 92, 246, 0.1);
+        }
+        
+        .character-happy {
+            border-color: #06b6d4;
+            background: rgba(6, 182, 212, 0.1);
+        }
+        
+        .character-wendy {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+        }
+        
+        .guild-symbol {
+            background-image: url('https://i.imgur.com/J6P6QzP.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+        }
+        
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .magic-button {
+            background: linear-gradient(90deg, #ef4444, #f59e0b, #3b82f6, #8b5cf6);
+            background-size: 300% 100%;
+            border: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+          }
+        
+        .magic-button:hover {
+            background-position: 100% 0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.6);
+        }
+        
+        .motion-line {
+            position: absolute;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(to bottom, transparent, #3b82f6, transparent);
+            left: 10px;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Guild Symbol -->
+    <header class="text-center py-12 md:py-16 relative overflow-hidden">
+        <div class="absolute inset-0 guild-symbol"></div>
+        <div class="content-wrapper">
+            <h1 class="title-font text-5xl md:text-7xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yellow-400 to-blue-500">
+                FAIRY TAIL
+            </h1>
+            <p class="text-xl md:text-2xl font-medium text-blue-300">"Когда ты с друзьями - ты непобедим!"</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 pb-16 relative">
+        <!-- Motion Effect Lines -->
+        <div class="motion-line hidden md:block"></div>
+        <div class="motion-line hidden md:block right-10 left-auto"></div>
+
+        <!-- Plot Section -->
+        <section id="plot" class="mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 section-title">Сюжет</h2>
+            <div class="max-w-4xl mx-auto p-6 card">
+                <p class="text-lg leading-relaxed mb-4">
+                    В волшебном мире Фиоре магия - это обычное явление, а гильдии магов предлагают свои услуги за деньги. Юная волшебница <span class="text-yellow-300 font-medium">Люси Хартфилия</span> мечтает вступить в самую известную (и самую хаотичную) гильдию - <span class="text-blue-300 font-bold">"Хвост Феи"</span>.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    Её судьба меняется после встречи с <span class="text-red-400 font-bold">Нацу Драгнилом</span> - огненным Убийцей Драконов и его говорящим котом <span class="text-cyan-300 font-medium">Хэппи</span>. Вместе с ледяным магом <span class="text-blue-400 font-medium">Греем Фуллбастером</span> и непобедимой <span class="text-purple-400 font-bold">Эльзой Скарлет</span>, они образуют команду, которая бросает вызов тёмным гильдиям, древним демонам и могущественным врагам.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Но что бы ни случилось, они всегда доказывают, что <span class="font-bold text-yellow-300">настоящая сила - в узах дружбы</span> и верности своей гильдии!
+                </p>
+            </div>
+        </section>
+
+        <!-- Characters Section -->
+        <section id="characters" class="mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title">Гильдия Хвост Феи</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Natsu -->
+                <article class="card character-natsu">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-12 h-12 rounded-full bg-red-500 mr-3 flex items-center justify-center text-white font-bold">N</div>
+                            <h3 class="text-2xl font-bold text-red-400">Нацу Драгнил</h3>
+                        </div>
+                        <p class="text-gray-200">
+                            <span class="font-medium text-red-300">Огненный Убийца Драконов</span>. Воспитан драконом Игнилом. Его магия позволяет поглощать и контролировать огонь. Несмотря на вспыльчивый характер и склонность крушить всё вокруг, Нацу - преданный друг, готовый на всё ради своих товарищей.
+                          </p>
+                        <div class="mt-3 text-sm text-red-300 font-medium">
+                            ♨️ Любимая фраза: "Я сожгу всё дотла!"
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Lucy -->
+                <article class="card character-lucy">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-12 h-12 rounded-full bg-yellow-500 mr-3 flex items-center justify-center text-white font-bold">L</div>
+                            <h3 class="text-2xl font-bold text-yellow-400">Люси Хартфилия</h3>
+                        </div>
+                        <p class="text-gray-200">
+                            <span class="font-medium text-yellow-300">Заклинательница Звёздных Духов</span>. Использует магические ключи для призыва духов из другого мира. Убежала из богатой семьи, чтобы жить свободной жизнью. Является "сердцем" команды и автором книги об их приключениях.
+                        </p>
+                        <div class="mt-3 text-sm text-yellow-300 font-medium">
+                            ✨ Любимая фраза: "Открываюсь, врата!"
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Gray -->
+                <article class="card character-gray">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-12 h-12 rounded-full bg-blue-500 mr-3 flex items-center justify-center text-white font-bold">G</div>
+                            <h3 class="text-2xl font-bold text-blue-400">Грей Фуллбастер</h3>
+                        </div>
+                        <p class="text-gray-200">
+                            <span class="font-medium text-blue-300">Маг Созидания Льда</span>. Может создавать изо льда любые предметы и оружие. Обучен волшебницей Ур. Постоянно соперничает с Нацу. Имеет привычку неосознанно раздеваться в неподходящие моменты.
+                        </p>
+                        <div class="mt-3 text-sm text-blue-300 font-medium">
+                            ❄️ Любимая фраза: "Я сделаю тебе ледяную статую!"
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Erza -->
+                <article class="card character-erza">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-12 h-12 rounded-full bg-purple-500 mr-3 flex items-center justify-center text-white font-bold">E</div>
+                            <h3 class="text-2xl font-bold text-purple-400">Эльза Скарлет</h3>
+                        </div>
+                        <p class="text-gray-200">
+                            <span class="font-medium text-purple-300">"Титания"</span>, волшебница S-класса. Использует магию Перевооружения - может мгновенно менять доспехи и оружие. В прошлом была рабыней, но нашла семью в "Хвосте Феи". Строгая, но заботливая.
+                        </p>
+                        <div class="mt-3 text-sm text-purple-300 font-medium">
+                            ⚔️ Любимая фраза: "Вы готовы к наказанию?"
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Happy -->
+                <article class="card character-happy">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-12 h-12 rounded-full bg-cyan-500 mr-3 flex items-center justify-center text-white font-bold">H</div>
+                            <h3 class="text-2xl font-bold text-cyan-400">Хэппи</h3>
+                          </div>
+                        <p class="text-gray-200">
+                            <span class="font-medium text-cyan-300">Летающий синий кот</span> из Экса. Вылупился из яйца, которое нашёл Нацу. Умеет летать с помощью крыльев и носить вещи. Обожает рыбу и подшучивать над Люси. Лучший друг Нацу и комический персонаж команды.
+                        </p>
+                        <div class="mt-3 text-sm text-cyan-300 font-medium">
+                            🐟 Любимая фраза: "Айи~!"
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Wendy -->
+                <article class="card character-wendy">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-12 h-12 rounded-full bg-green-500 mr-3 flex items-center justify-center text-white font-bold">W</div>
+                            <h3 class="text-2xl font-bold text-green-400">Венди Марвелл</h3>
+                        </div>
+                        <p class="text-gray-200">
+                            <span class="font-medium text-green-300">Небесная Убийца Драконов</span>. Воспитана драконом Грандином. Её магия позволяет лечить раны и усиливать союзников. Сначала застенчивая, но со временем становится увереннее. Член команды "Голубой Пегас", затем "Хвоста Феи".
+                        </p>
+                        <div class="mt-3 text-sm text-green-300 font-medium">
+                            💨 Любимая фраза: "Небесный рёв!"
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Other Sections (Manga, Anime, etc.) -->
+        <!-- These would follow the same card pattern with appropriate styling -->
+        
+        <!-- Manga Link Section -->
+        <section id="manga-link" class="text-center mt-20">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 section-title">Присоединяйся к гильдии!</h2>
+            <p class="mb-8 text-xl text-blue-300 max-w-2xl mx-auto">
+                Хочешь узнать все тайны "Хвоста Феи"? Читай оригинальную мангу и смотри аниме-адаптацию!
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://mangalib.me/fairy-tail" target="_blank" rel="noopener noreferrer" 
+                   class="magic-button py-3 px-8 rounded-full text-lg">
+                    Читать мангу
+                </a>
+                <a href="https://fairy-tail-jut-su.ru/" target="_blank" rel="noopener noreferrer" 
+                   class="magic-button py-3 px-8 rounded-full text-lg">
+                    Смотреть аниме
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 mt-12 bg-gradient-to-r from-blue-900/70 to-purple-900/70 border-t-2 border-blue-500/30">
+        <div class="container mx-auto px-4">
+            <p class="text-blue-300 mb-2">© Fairy Tail - Хиро Масима / Kodansha, A-1 Pictures, Dentsu</p>
+            <p class="text-sm text-blue-400/80">Фан-сайт создан для образовательных целей. Все права принадлежат правообладателям.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
